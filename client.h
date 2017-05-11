@@ -9,22 +9,11 @@
 #define FALSE 0
 #define CHAT_LEN 100
 #define PERIOD_IN_SEC 45
-#define SERVER_PORT  12280
+#define LOCAL_PORT 12280
+#define SEND 1
+#define RECV -1
+#define INI_SIZE 3000
 
-typedef struct reg_info *info;
-struct reg_info{
-  char pw[12];
-  char username[14];
-  unsigned short port;
-};
-
-typedef struct peer *Link;
-struct peer{
-  char username[14];
-  in_port_t port;
-  in_addr_t ip;
-  Link next;
-}; 
 
 typedef struct package *pack;
 struct package{
@@ -38,14 +27,9 @@ struct package{
 
 pthread_t tid[2];
 
-void reg();
-void regi(info detail);
-void free_list(Link list);
-void print_list(Link list);
-Link decode(char *reply);
+void request();
 int udp_sent_recv(pack _info, int option); // option:1->send only; -1->recv only;
 int chat_serv();
-void chat(Link list);
-int transfer();
+
 
 #endif
