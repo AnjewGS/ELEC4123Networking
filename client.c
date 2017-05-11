@@ -24,6 +24,7 @@ int main(){
     pthread_create(&(tid[0]), NULL, &reg, NULL);
     pthread_create(&(tid[1]), NULL, &chat_serv, NULL);
     ghiuhgiuehges
+    absdjiwjfaoiw
     while(1){
       if(!hold)
 	printf("Enter command (C,T,R,L,Q, H for Help): ");
